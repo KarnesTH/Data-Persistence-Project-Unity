@@ -12,6 +12,7 @@ public class MainManager : MonoBehaviour
 
     public Text ScoreText;
     public GameObject GameOverText;
+    public Text HighscoreText;
     
     private bool m_Started = false;
     private int m_Points;
@@ -40,6 +41,7 @@ public class MainManager : MonoBehaviour
 
     private void Update()
     {
+        HighscoreText.text = $"Best Score : {GameManager.Instance.PlayerName} : {GameManager.Instance.PlayerHighscore}";
         if (!m_Started)
         {
             if (Input.GetKeyDown(KeyCode.Space))
@@ -66,6 +68,11 @@ public class MainManager : MonoBehaviour
     {
         m_Points += point;
         ScoreText.text = $"Score : {m_Points}";
+        if (m_Points > GameManager.Instance.PlayerHighscore)
+        {
+            GameManager.Instance.PlayerHighscore = m_Points;
+            GameManager.Instance.SaveHighscore();
+        }
     }
 
     public void GameOver()

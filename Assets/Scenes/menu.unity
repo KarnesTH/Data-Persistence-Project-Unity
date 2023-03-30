@@ -621,7 +621,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1208516626}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1978609999}
+        m_TargetAssemblyTypeName: MenuUIManager, Assembly-CSharp
+        m_MethodName: QuitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1208516626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1304,7 +1316,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1703712350}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1978609999}
+        m_TargetAssemblyTypeName: MenuUIManager, Assembly-CSharp
+        m_MethodName: StartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1703712350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1507,8 +1531,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c333346f64bcc4049a825696ffd7ad81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerName: {fileID: 0}
-  PlayerHighscore: {fileID: 0}
+  PlayerName: 
+  PlayerHighscore: 0
 --- !u!4 &1791996016
 Transform:
   m_ObjectHideFlags: 0
@@ -1642,4 +1666,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   highscoreText: {fileID: 1630027322}
-  playerNameText: {fileID: 1384461905}
+  playerInput: {fileID: 451167335}

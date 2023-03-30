@@ -1,33 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 using System.IO;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    public TextMeshProUGUI PlayerName;
-    public TextMeshProUGUI PlayerHighscore;
+    public string PlayerName;
+    public int PlayerHighscore;
 
     [System.Serializable]
     class SaveData
     {
-        public TextMeshProUGUI PlayerName;
-        public TextMeshProUGUI PlayerHighscore;
+        public string PlayerName;
+        public int PlayerHighscore;
     }
 
-    public void SaveName()
+    public void SaveHighscore()
     {
         SaveData data = new SaveData();
-        data.PlayerName = PlayerName;
+        data.PlayerHighscore = PlayerHighscore;
 
         string json = JsonUtility.ToJson(data);
 
         File.WriteAllText(Application.persistentDataPath + "/savefile.json", json);
     }
 
-    public void LoadName()
+    public void LoadHighscore()
     {
         string path = Application.persistentDataPath + "/savefile.json";
         if (File.Exists(path))
@@ -35,7 +34,7 @@ public class GameManager : MonoBehaviour
             string json = File.ReadAllText(path);
             SaveData data = JsonUtility.FromJson<SaveData>(json);
 
-            PlayerName = data.PlayerName;
+            PlayerHighscore = data.PlayerHighscore;
         }
     }
 

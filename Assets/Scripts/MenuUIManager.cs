@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -10,22 +11,25 @@ using UnityEditor;
 public class MenuUIManager : MonoBehaviour
 {
     public TextMeshProUGUI highscoreText;
-    public TextMeshProUGUI playerNameText;
+    public TMP_InputField playerInput;
+    private string playerName;
 
     // Start is called before the first frame update
     void Start()
     {
-        GameManager.Instance.LoadName();
+        GameManager.Instance.LoadHighscore();
     }
 
     // Update is called once per frame
     void Update()
     {
-        highscoreText.text = $"Best Score: {GameManager.Instance.PlayerName}: {GameManager.Instance.PlayerHighscore}";
+        highscoreText.text = $"Best Score: {GameManager.Instance.PlayerName} : {GameManager.Instance.PlayerHighscore}";
     }
 
     public void StartGame()
     {
+        playerName = playerInput.GetComponent<TMP_InputField>().text;
+        GameManager.Instance.PlayerName = playerName;
         SceneManager.LoadScene(1);
     }
 
