@@ -15,13 +15,13 @@ public class MenuUIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        GameManager.Instance.LoadName();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        highscoreText.text = $"Best Score: {GameManager.Instance.PlayerName}: {GameManager.Instance.PlayerHighscore}";
     }
 
     public void StartGame()
